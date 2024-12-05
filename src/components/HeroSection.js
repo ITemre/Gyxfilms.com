@@ -61,7 +61,7 @@ const LogoAnimation = () => {
         }}
       >
         <motion.img
-          src="/gyxicon.png"
+          src="/logo.webp"
           alt="GYX Logo"
           className="w-32 h-32 md:w-48 md:h-48 object-contain"
           initial={{ opacity: 0, scale: 0.5, rotate: -180 }}
