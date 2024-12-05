@@ -93,7 +93,7 @@ function AboutUs() {
         >
           <motion.div 
             style={{ scale: profileScale, opacity: profileOpacity }}
-            className="relative mb-8"
+            className="relative mb-8 mt-10"
           >
             <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-white/20">
               <img 
