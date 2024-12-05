@@ -18,14 +18,7 @@ export default function Footer() {
           >
             <FaInstagram className="w-6 h-6" />
           </a>
-          <a 
-            href="https://linkedin.com/in/gyxfilms" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="text-white hover:text-gray-400"
-          >
-            <FaLinkedin className="w-6 h-6" />
-          </a>
+       
         </div>
 
         {/* Navigation Links */}
