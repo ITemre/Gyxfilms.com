@@ -3,6 +3,7 @@ import ComparisonSection from '@/components/ComparisonSection';
 import HeroSection from '@/components/HeroSection';
 import EndCard from '@/components/EndCard';
 
+
 export default function Home() {
   const heroData = {
     videoSources: {
@@ -69,6 +70,7 @@ export default function Home() {
           parallaxText={heroData.parallaxText}
           features={heroData.features}
         />
+
 
         <section id="comparisons" className="py-16 sm:py-32 w-full">
           <div className="w-full px-4 sm:px-8">
