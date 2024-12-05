@@ -1,0 +1,102 @@
+{
+  "home": {
+    "hero": {
+      "videoSources": {
+        "mobile": "/9zu16.mp4",
+        "desktop": "/16zu9.mp4"
+      },
+      "logo": {
+        "src": "/gyxicon.png",
+        "alt": "GYX Logo"
+      },
+      "title": "GYX FILMS",
+      "parallaxText": "Deine Geschichte in einem Film",
+      "features": [
+        {
+          "icon": "Camera",
+          "title": "Hochwertige Produktion",
+          "description": "Modernste Ausrüstung für beste Bildqualität"
+        },
+        {
+          "icon": "Film",
+          "title": "Kreative Visionen",
+          "description": "Einzigartige Perspektiven und innovative Konzepte"
+        },
+        {
+          "icon": "Play",
+          "title": "Dynamische Inhalte",
+          "description": "Fesselnde Geschichten, die bewegen"
+        },
+        {
+          "icon": "Award",
+          "title": "Ausgezeichnete Qualität",
+          "description": "Höchste Standards in jedem Projekt"
+        }
+      ]
+    },
+    "comparison": {
+      "title": "Cineastische Perfektion durch professionelles Colorgrading",
+      "description": "Rohmaterial aus der Kamera ist wie ein ungeschliffener Diamant - voller Potential, aber noch nicht optimal. Durch präzises Colorgrading erwecken wir die Emotionen Ihrer Geschichte zum Leben.",
+      "before": {
+        "vimeoId": "1034620769",
+        "type": "Raw Footage"
+      },
+      "after": {
+        "vimeoId": "1034620769",
+        "type": "Final Grade"
+      }
+    },
+    "cinematic": {
+      "title": "Über mich",
+      "description": "Erfahren Sie mehr über meine Vision, Leidenschaft und Erfahrung in der Videoproduktion.",
+      "link": "/about",
+      "buttonText": "Mehr erfahren"
+    }
+  },
+  "videos": {
+    "projects": [
+      {
+        "title": "Sindelfinger Tor",
+        "category": "Imagefilme",
+        "year": "2024",
+        "vimeoId": "946496568",
+        "description": "Imagefilm für das Sindelfinger Tor"
+      },
+      {
+        "title": "Social Natives",
+        "category": "Imagefilme",
+        "year": "2024",
+        "vimeoId": "1035389971",
+        "description": "Imagefilm für Social Natives"
+      }
+    ]
+  },
+  "global": {
+    "navigation": {
+      "logo": "GYX FILMS",
+      "menuItems": [
+        { "title": "Home", "href": "/" },
+        { "title": "Über mich", "href": "/about" },
+        { "title": "Leistungen", "href": "/services" },
+        { "title": "Filme", "href": "/films" },
+        { "title": "Kontakt", "href": "/contact" }
+      ]
+    },
+    "footer": {
+      "social": {
+        "instagram": "https://instagram.com",
+        "linkedin": "https://linkedin.com"
+      },
+      "links": [
+        { "title": "Impressum", "href": "/impressum" },
+        { "title": "Kontakt", "href": "/contact" }
+      ],
+      "copyright": "© {year} GYX Films. Alle Rechte vorbehalten.",
+      "credits": {
+        "text": "Programmierung & Design:",
+        "link": "https://www.emre-it.com",
+        "linkText": "www.emre-it.com"
+      }
+    }
+  }
+}
