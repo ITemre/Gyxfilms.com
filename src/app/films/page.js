@@ -5,6 +5,7 @@ import { Play } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import EndCard from '@/components/EndCard';
 
+
 // Memoized VideoThumbnail Component
 const VideoThumbnail = memo(({ vimeoId, title }) => {
   return (
@@ -21,8 +22,10 @@ const VideoThumbnail = memo(({ vimeoId, title }) => {
 
 VideoThumbnail.displayName = 'VideoThumbnail';
 
-// Memoized Modal Component with Animation
+
 const VideoModal = memo(({ isOpen, onClose, vimeoId, title }) => {
+  const [isLoading, setIsLoading] = useState(true);
+
   if (!isOpen) return null;
 
   return (
@@ -51,7 +54,14 @@ const VideoModal = memo(({ isOpen, onClose, vimeoId, title }) => {
               Schließen
             </button>
           </div>
-          <div className="w-full aspect-video mt-16">
+          <div className="w-full aspect-video mt-16 relative">
+            {/* Ladeindikator */}
+            {isLoading && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black/80 z-10">
+                {/* Hier können Sie Ihren eigenen Ladeindikator oder Spinner einfügen */}
+                <div className="text-white">Lädt...</div>
+              </div>
+            )}
             <iframe
               src={`https://player.vimeo.com/video/${vimeoId}?badge=0&autopause=0&player_id=0&app_id=58479`}
               className="w-full h-full"
@@ -59,6 +69,7 @@ const VideoModal = memo(({ isOpen, onClose, vimeoId, title }) => {
               allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen
               title={title}
+              onLoad={() => setIsLoading(false)}
             />
           </div>
         </motion.div>

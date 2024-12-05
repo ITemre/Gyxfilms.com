@@ -6,7 +6,7 @@ import { motion, useInView } from 'framer-motion';
 import { Film, Camera, Mic, Star, Play } from 'lucide-react';
 import { useRef, useState, memo } from 'react';
 import Link from 'next/link';
-import ArgumentsSection from '@/components/ArgumentsSection';
+
 import EndCard from '@/components/EndCard';
 
 // Memoized VideoThumbnail Component
