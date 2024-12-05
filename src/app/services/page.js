@@ -139,22 +139,22 @@ const FeatureSection = ({ feature, index }) => {
             </motion.div>
           ))}
         </div>
+{/* USPs Grid */}
+<div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto mb-12">
+  {feature.usps.slice(0, 2).map((usp, idx) => (
+    <motion.div
+      key={idx}
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.4, delay: 0.6 + idx * 0.1 }}
+      className="backdrop-blur-sm bg-white/5 p-4 rounded-xl text-center"
+    >
+      <div className="text-lg font-medium text-white mb-2">{usp.title}</div>
+      <div className="text-sm text-white/60">{usp.description}</div>
+    </motion.div>
+  ))}
+</div>
 
-        {/* USPs Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto mb-12">
-          {feature.usps.map((usp, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.4, delay: 0.6 + idx * 0.1 }}
-              className="backdrop-blur-sm bg-white/5 p-4 rounded-xl text-center"
-            >
-              <div className="text-lg font-medium text-white mb-2">{usp.title}</div>
-              <div className="text-sm text-white/60">{usp.description}</div>
-            </motion.div>
-          ))}
-        </div>
 
         {/* CTA Button */}
         <motion.div 
