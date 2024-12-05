@@ -10,7 +10,7 @@ export default function Home() {
       desktop: "/16zu9.mp4"
     },
     logo: {
-      src: "/gyxicon.png",
+      src: "/Gyxicon.png",
       alt: "GYX Logo"
     },
     title: "GYX FILMS",
