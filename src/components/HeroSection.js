@@ -17,7 +17,7 @@ const VideoBackground = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const getVideoSource = () => (isMobile ? '/9zu16.mp4' : '/16zu9.mp4');
+  const getVideoSource = () => (isMobile ? '/bg.mp4' : '/bg.mp4');
 
   return (
     <div className="absolute inset-0 bg-black z-0">

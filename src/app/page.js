@@ -7,8 +7,8 @@ import EndCard from '@/components/EndCard';
 export default function Home() {
   const heroData = {
     videoSources: {
-      mobile: "/9zu16.mp4",
-      desktop: "/16zu9.mp4"
+      mobile: "/bg.mp4",
+      desktop: "/bg.mp4"
     },
     logo: {
       src: "/logo.webp",
