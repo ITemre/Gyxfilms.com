@@ -1,38 +1,15 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronDown, Camera, Film, Play, Award } from 'lucide-react';
 
-const VideoBackground = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  const videoRef = useRef(null);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  const getVideoSource = () => (isMobile ? '/9zu16.mp4' : '/16zu9.mp4');
-
+const BackgroundImage = () => {
   return (
-    <div className="absolute inset-0 bg-black z-0">
-      <div className="absolute inset-0 overflow-hidden">
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute w-full h-full object-cover"
-        >
-          <source src={getVideoSource()} type="video/mp4" />
-        </video>
-      </div>
+    <div
+      className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: 'url(/bg.jpg)' }}
+    >
       <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px]" />
     </div>
   );
@@ -93,29 +70,6 @@ const LogoAnimation = () => {
   );
 };
 
-const FeatureCard = ({ icon: Icon, title, description, index }) => {
-  const cardRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: cardRef,
-    offset: ['start end', 'center center'],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  const x = useTransform(scrollYProgress, [0, 1], [100, 0]);
-
-  return (
-    <motion.div
-      ref={cardRef}
-      className="bg-black/40 backdrop-blur-lg p-6 rounded-lg border border-white/10"
-      style={{ opacity, x }}
-    >
-      <Icon className="w-8 h-8 mb-4 text-white" />
-      <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
-      <p className="text-gray-300">{description}</p>
-    </motion.div>
-  );
-};
-
 const ScrollIndicator = () => {
   return (
     <motion.div
@@ -132,26 +86,6 @@ const ScrollIndicator = () => {
     >
       <ChevronDown className="w-8 h-8 animate-bounce" />
       <span className="sr-only">Scroll down</span>
-    </motion.div>
-  );
-};
-const ParallaxText = () => {
-  const textRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: textRef,
-    offset: ['start end', 'end start'], // Passen wir die Offsets an, um den Text länger sichtbar zu machen
-  });
-
-  const x = useTransform(scrollYProgress, [0, 1], [0, -50]); // Weniger Bewegung auf kleinen Bildschirmen
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.8], [1, 1, 0]); // Langsamere Transparenz-Änderung
-
-  return (
-    <motion.div
-      ref={textRef}
-      className="flex items-center justify-center overflow-hidden whitespace-nowrap text-3xl md:text-5xl font-bold text-white/80"
-      style={{ x, opacity }}
-    >
-      Deine Geschichte in einem Film
     </motion.div>
   );
 };
@@ -183,16 +117,21 @@ const HeroSection = () => {
   return (
     <>
       <section className="relative min-h-screen w-full overflow-hidden bg-black text-white">
-        <VideoBackground />
+        <BackgroundImage />
         <LogoAnimation />
         <ScrollIndicator />
       </section>
       <section className="relative bg-black text-white py-16">
-        <ParallaxText />
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
             {features.map((feature, index) => (
-              <FeatureCard key={index} {...feature} index={index} />
+              <div key={index} className="flex flex-col gap-4">
+                <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center">
+                  <feature.icon className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold">{feature.title}</h3>
+                <p className="text-white/70">{feature.description}</p>
+              </div>
             ))}
           </div>
         </div>
