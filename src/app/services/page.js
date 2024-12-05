@@ -6,7 +6,7 @@ import { motion, useInView } from 'framer-motion';
 import { Film, Camera, Mic, Star, Play } from 'lucide-react';
 import { useRef, useState, memo } from 'react';
 import Link from 'next/link';
-import CinematicSection from '@/components/EndCard';
+import EndCard from '@/components/EndCard';
 
 // Memoized VideoThumbnail Component
 const VideoThumbnail = memo(({ vimeoId }) => {
@@ -314,7 +314,7 @@ export default function Services() {
         />
       ))}
       
-      <CinematicSection 
+      <EndCard 
         title="Unsere Filme"
         description="Sehen Sie sich unser Portfolio an beeindruckenden Filmen und Projekten an."
         link="/films"

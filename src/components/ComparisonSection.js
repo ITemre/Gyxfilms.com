@@ -81,6 +81,22 @@ const ComparisonSlider = ({ beforeContent, afterContent }) => {
   );
 };
 
+const AnimatedText = ({ children }) => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: false, amount: 0.3 });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      className="text-white"
+    >
+      {children}
+    </motion.div>
+  );
+};
 const ComparisonSection = () => {
   const comparison = {
     title: "Cinematische Perfektion durch professionelles Colorgrading",

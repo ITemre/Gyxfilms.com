@@ -2,14 +2,18 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { getContent } from '@/utils/contentLoader';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const content = getContent();
-  const { navigation } = content.global;
-  const { contact } = content.global;
+
+  const menuItems = [
+    { title: 'Home', href: '/' },
+    { title: 'Über mich', href: '/about' },
+    { title: 'Leistungen', href: '/services' },
+    { title: 'Filme', href: '/films' },
+    { title: 'Kontakt', href: '/contact' }
+  ];
 
   useEffect(() => {
     setMounted(true);
@@ -28,11 +32,11 @@ export default function Navbar() {
               href="/"
               className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-[#E2E2E2] to-[#CCCCCC]"
             >
-              {navigation.logo}
+              GYX FILMS
             </Link>
 
             <div className="hidden md:flex items-center gap-8">
-              {navigation.menuItems.map((item) => (
+              {menuItems.map((item) => (
                 <Link
                   key={item.title}
                   href={item.href}
@@ -76,7 +80,7 @@ export default function Navbar() {
             className="fixed inset-0 z-40 md:hidden bg-[#1A1A1A]"
           >
             <div className="h-full flex flex-col pt-24 px-4">
-              {navigation.menuItems.map((item, index) => (
+              {menuItems.map((item, index) => (
                 <motion.div
                   key={item.title}
                   initial={{ opacity: 0, x: -20 }}
@@ -104,8 +108,8 @@ export default function Navbar() {
               >
                 <div className="border-t border-white/10 pt-8">
                   <p className="text-sm text-white/50 mb-4">Kontaktieren Sie uns</p>
-                  <a href={"mailto:'info@gyxfilms.com"} className="text-lg text-white">
-  info@gyxfilms.com
+                  <a href="mailto:info@gyxfilms.com" className="text-lg text-white">
+                    info@gyxfilms.com
                   </a>
                 </div>
               </motion.div>
